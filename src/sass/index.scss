@@ -1,7 +1,12 @@
 @import './common';
+
 @import './utils/variables';
 @import './utils/container';
 @import './utils/mixins';
 @import './utils/placeholders';
-@import './layout/footer';
+
 @import './base/btns';
+
+@import './modal';
+
+@import './layout/footer';
