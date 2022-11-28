@@ -25,16 +25,26 @@
     min-height: 558px;
     margin:0 auto;
     padding: 40px 12px;
-    background-color: aqua;
+    border: 1px solid rgb(3, 52, 249);
 }
 
 .modal_close_btn {
     position: absolute;
-    width: 30px;
-    height: 30px;
     top: 8px;
     right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: inherit;
+    border-style: none;
 }
+
+.modal_close_btn:hover svg {
+   background-color: rgb(230, 86, 86);
+}
+
+
+
 
 .modal_image {
     width: 375px;
@@ -68,6 +78,7 @@
 
 .modal_values_line {
     display: flex;
+    flex-direction: row;
 }
 
 .modal_specific--item {
@@ -87,6 +98,23 @@
     font-size: 12px;
     line-height: 16px;
     color: #000000;   
+}
+
+.modal_specific--vote {
+    display: inline-flex;
+    justify-content: center;
+    color: #FFFFFF;
+    width: 36px;
+    background-color: #FF6B01;
+    border-radius: 5px;
+    margin-right: 3px;
+}
+
+.modal_specific--votes{
+    display: inline-flex;
+    justify-content: center;
+    width: 36px;
+    border-radius: 5px;
 }
 
 .modal_description--title {
@@ -139,6 +167,7 @@
     background: #FF6B01;
     scale: 1.05;
     color: #FFFFFF;
+    border-style: none;
 }
 
 
