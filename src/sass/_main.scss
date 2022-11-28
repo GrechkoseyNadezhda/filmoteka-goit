@@ -1,0 +1,42 @@
+.page-main {
+  padding: 60px 0;
+}
+
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  @media screen and (min-width: 480px) {
+    gap: 32px;
+  }
+
+  @media screen and (min-width: 768px) {
+    gap: 32px 16px;
+  }
+}
+
+.movie {
+  width: 100%;
+
+  @media screen and (min-width: 480px) {
+    width: calc((100% - 32px) / 2);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: calc((100% - 32px) / 3);
+  }
+}
+
+.movie__img {
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.movie__name {
+  text-transform: uppercase;
+}
+
+.movie__description {
+  color: #ff6b08;
+}
