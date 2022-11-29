@@ -1,9 +1,7 @@
 
     <div class="modal">
-        <button type="button" class="modal_close_btn"><svg class="close_btn" width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 8L22 22" stroke="black" stroke-width="2"/>
-            <path d="M8 22L22 8" stroke="black" stroke-width="2"/>
-            </svg></button>
+        <button type="button" class="modal_close_btn"><svg class="close_btn__svg" width="30px" height="30px">
+            <use href="/src/images/icons.svg#icon-close"></use></svg></button>
         <div class="modal_picture">
         <img class="modal_image" src="./images/modal_img.jpg" alt="Movie main picture">
         </div>
@@ -33,7 +31,8 @@
                 <button type="button" class="modal_btn">ADD TO QUEUE</button>
             </div>
             <div class="modal_movie_trailer">
-                <a class="modal_movie_trailer--ref" href="#"><p>WATCH TRAILER</p></a>
+                <a class="modal_movie_trailer--ref" href="#"><svg class="movie_trailer__svg" width="23px" height="24px">
+                    <use href="/src/images/icons.svg#icon-youtube"></use></svg><p>WATCH TRAILER</p></a>
             </div>
         </div>
     </div>

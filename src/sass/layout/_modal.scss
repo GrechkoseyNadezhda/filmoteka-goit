@@ -8,30 +8,64 @@
   margin: 0 auto;
   padding: 40px 12px;
   border: 1px solid rgb(3, 52, 249);
+
+  @media screen and (min-width: 768px) and (max-width: 1279px)
+{
+  width: 704px;
+  padding: 40px 72px 40px 36px;
 }
+  @media screen and (max-width: 767px)
+{
+  width: 280px;
+  flex-direction: column;
+}}
 
 .modal_close_btn {
   position: absolute;
   top: 8px;
-  right: 8px;
+  right: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: inherit;
   border-style: none;
+  cursor: pointer;
 }
 
-.modal_close_btn:hover svg {
-  background-color: rgb(230, 86, 86);
-}
+.modal_close_btn:hover .close_btn__svg {
+  stroke: #ff6b01;
+ }
+
+.close_btn__svg {
+  stroke:black;
+ }
+
 
 .modal_image {
   min-width: 375px;
   border-radius: 5px;
+
+  @media screen and (min-width: 768px) and (max-width: 1279px)
+  {
+    min-width: 264px;
+  }
+    @media screen and (max-width: 767px)
+  {
+    min-width: 240px;
+  }
 }
 
 .modal_info {
   margin-left: 16px;
+
+  @media screen and (min-width: 768px) and (max-width: 1279px)
+  {
+    margin-left: 68px;
+  }
+    @media screen and (max-width: 767px)
+  {
+    margin-left: 0;
+  }
 }
 
 .modal_info_name {
@@ -41,6 +75,15 @@
   font-size: 30px;
   line-height: 35px;
   color: #000000;
+
+  @media screen and (min-width: 768px) and (max-width: 1279px)
+  {
+    font-size: 20px;
+  }
+    @media screen and (max-width: 767px)
+  {
+    
+  }
 }
 
 .modal_specific {
@@ -116,6 +159,12 @@
   display: flex;
   flex-direction: row;
   gap: 10px;
+
+  @media screen and (max-width: 1279px)
+  {
+    margin-left: 0;
+  }
+
 }
 
 .modal_btn {
@@ -155,9 +204,26 @@
   justify-content: center;
   text-transform: uppercase;
   color: #000000;
+
+  @media screen and (max-width: 1279px)
+  {
+    margin-left: 0;
+  }
 }
 
 .modal_movie_trailer--ref:hover {
   background-color: #FF0000;
   color: #ffffff;
+  border: none;
 }
+
+.movie_trailer__svg {
+  margin-right: 5px;
+  fill: #FF0000;
+}
+
+.modal_movie_trailer--ref:hover .movie_trailer__svg {
+fill: #ffffff;
+}
+
+
