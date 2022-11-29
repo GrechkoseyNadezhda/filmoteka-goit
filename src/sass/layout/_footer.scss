@@ -1,0 +1,33 @@
+.footer-section {
+  color: $footer-text-color;
+  width: 100%;
+  background-color: $footer-bg-color;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.footer-group {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-section__link {
+  color: $footer-text-color;
+  text-decoration: underline;
+}
+
+.footer-group {
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 1.14;
+  max-width: 280px;
+
+  @media screen and(min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.19;
+    max-width: 100%;
+  }
+}
