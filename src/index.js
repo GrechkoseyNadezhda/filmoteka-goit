@@ -36,7 +36,6 @@ async function onFormSubmit(e) {
     const {
       data: { results },
     } = await apiService.getMovieByName(query);
-    console.log(results);
 
     const newArr = await parseObjects(results);
 
@@ -52,7 +51,7 @@ async function parseObjects(arr) {
   try {
     const {
       data: { genres },
-    } = await apiService.getGengeList();
+    } = await apiService.getGenges();
 
     return arr.map(el => new Movie(el, genres));
   } catch (err) {

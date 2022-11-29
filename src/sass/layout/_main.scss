@@ -42,10 +42,12 @@
 
   @media screen and (min-width: $tablet-width) {
     margin-bottom: 8px;
+    max-height: 455px;
   }
 
   @media screen and (min-width: $desktop-width) {
     margin-bottom: 12px;
+    max-height: 574px;
   }
 }
 

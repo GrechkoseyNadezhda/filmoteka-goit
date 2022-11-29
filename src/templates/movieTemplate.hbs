@@ -9,16 +9,20 @@
     />
     <div class='movie__info'>
       <p class='movie__name'>{{this.title}}</p>
-      <p class='movie__description'>{{this.genres}}
+      <p class='movie__description'>
+        {{this.genres}}
+
         {{#if this.genres}}
           {{#if this.releaseDate}}
             |
           {{/if}}
         {{/if}}
+
         {{this.releaseDate}}
+
         {{#unless this.genres}}
           {{#unless this.releaseDate}}
-            No information about this movie
+            No information about the movie
           {{/unless}}
         {{/unless}}
       </p>
