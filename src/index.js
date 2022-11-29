@@ -48,43 +48,13 @@ async function onFormSubmit(e) {
 }
 
 async function parseObjects(arr) {
-  const {
-    data: { genres },
-  } = await apiService.getGengeList();
+  try {
+    const {
+      data: { genres },
+    } = await apiService.getGengeList();
 
-  const genreIds = genres.reduce((acc, el) => {
-    return {
-      ...acc,
-      [el.id]: el.name,
-    };
-  }, {});
-
-  return arr.map(el => {
-    const id = el.id;
-
-    const releaseDate = new Date(
-      el.release_date || el.first_air_date
-    ).getFullYear();
-
-    const genres = el.genre_ids
-      .map(id => genreIds[id])
-      .filter(e => e)
-      .join(', ');
-
-    const img = el.poster_path
-      ? `https://image.tmdb.org/t/p/w500${el.poster_path}`
-      : 'https://dummyimage.com/395x592/000/fff.jpg&text=MOVIE+POSTER+IS+NOT+DEFINED';
-
-    const title = el.title || el.name;
-
-    return {
-      id,
-      img,
-      title,
-      genres,
-      releaseDate,
-    };
-  });
-
-  // return arr.map(el => new Movie(el, genreIds));
+    return arr.map(el => new Movie(el, genres));
+  } catch (err) {
+    console.log(err);
+  }
 }

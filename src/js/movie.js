@@ -1,32 +1,41 @@
 export default class Movie {
-  constructor(el, genreIds) {
+  constructor(el, genres) {
     this.id = el.id;
-    this.img = this.setupImg();
-    this.title = setupTitle();
-    this.genres = setupGenres();
-    this.releaseDate = setupYear();
+    this.img = this.setupImg(el);
+    this.title = this.setupTitle(el);
+    this.genres = this.setupGenres(el, genres);
+    this.releaseDate = this.setupYear(el);
   }
 
-  setupImg() {
-    console.log(el);
-    return poster_path
+  setupImg(el) {
+    return el.poster_path
       ? `https://image.tmdb.org/t/p/w500${el.poster_path}`
       : 'https://dummyimage.com/395x592/000/fff.jpg&text=MOVIE+POSTER+IS+NOT+DEFINED';
   }
 
-  setupTitle() {
-    return title || name;
+  setupTitle(el) {
+    return el.title || el.name;
   }
 
-  setupYear() {
-    const date = release_date || first_air_date;
-    return new Date(date).getFullYear();
+  setupYear(el) {
+    return new Date(el.release_date || el.first_air_date).getFullYear();
   }
 
-  setupGenres() {
-    return genre_ids
-      .map(id => genreIds[id])
+  setupGenres(el, genres) {
+    const groupedGenres = this.groupGenres(genres);
+
+    return el.genre_ids
+      .map(id => groupedGenres[id])
       .filter(e => e)
       .join(', ');
+  }
+
+  groupGenres(genres) {
+    return genres.reduce((acc, el) => {
+      return {
+        ...acc,
+        [el.id]: el.name,
+      };
+    }, {});
   }
 }
