@@ -1,0 +1,27 @@
+.footer-section {
+  color: $footer-text-color;
+  height: 100px;
+  width: 100%;
+  background-color: $footer-bg-color;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.footer-section__link {
+  color: $footer-text-color;
+  text-decoration: underline;
+}
+
+.footer-section__title {
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.14;
+  max-width: 280px;
+  margin: 0 auto;
+
+  @media screen and(min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.19;
+    max-width: 100%;
+  }
+}
