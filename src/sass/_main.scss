@@ -7,11 +7,11 @@
   flex-wrap: wrap;
   gap: 20px;
 
-  @media screen and (min-width: 480px) {
+  @media screen and (min-width: $tablet-width) {
     gap: 32px;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $desktop-width) {
     gap: 32px 16px;
   }
 }
@@ -19,11 +19,11 @@
 .movie {
   width: 100%;
 
-  @media screen and (min-width: 480px) {
+  @media screen and (min-width: $tablet-width) {
     width: calc((100% - 32px) / 2);
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $desktop-width) {
     width: calc((100% - 32px) / 3);
   }
 }
@@ -38,5 +38,5 @@
 }
 
 .movie__description {
-  color: #ff6b08;
+  color: $press-color;
 }

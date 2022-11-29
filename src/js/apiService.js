@@ -1,48 +1,42 @@
 import axios from 'axios';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
+axios.defaults.params = {
+  api_key: '5ba51c2da469b356ab2a1378773a169b',
+};
 
 export default class ApiService {
-  #API_KEY = '5ba51c2da469b356ab2a1378773a169b';
-
   constructor() {
-    this.query = null;
     this.page = 1;
-    this.path = '/trending/all/day';
   }
 
-  getData() {
-    return axios.get(this.path, {
+  getTrendingMovies() {
+    return axios.get('/trending/all/day', {
       params: {
-        query: this.query,
         page: this.page,
-        api_key: this.#API_KEY,
       },
     });
   }
 
-  getQuery() {
-    return this.query;
+  getMovieByName(movieName) {
+    return axios.get('/search/movie', {
+      params: {
+        query: movieName,
+        page: this.page,
+      },
+    });
   }
 
-  changeQuery(newQuery) {
-    this.query = newQuery;
+  getMovieById(movieId) {
+    return axios.get(`/movie/${movieId}`);
   }
 
-  resetQuery() {
-    this.query = null;
+  getGengeList() {
+    return axios.get('/genre/movie/list');
   }
 
-  changePath() {
-    this.path = '/search/movie';
-  }
-
-  resetPath() {
-    this.path = '/trending/all/day';
-  }
-
-  incrementPage() {
-    this.page += 1;
+  changePage(pageNumber) {
+    this.page = pageNumber;
   }
 
   resetPage() {
