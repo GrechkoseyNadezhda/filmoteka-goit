@@ -1,5 +1,6 @@
 import ApiService from './js/apiService';
-import movieTemplate from './templates/movieTemplate.hbs';
+import Movie from './js/movie';
+import MovieTemplate from './templates/movieTemplate.hbs';
 
 const refs = {
   movieListRef: document.querySelector('.movie-list'),
@@ -18,8 +19,7 @@ async function fillMovies() {
 
     const markup = await parseObjects(results);
 
-    console.log(results);
-    refs.movieListRef.innerHTML = movieTemplate(markup);
+    refs.movieListRef.innerHTML = MovieTemplate(markup);
   } catch (err) {
     console.log(err);
   }
@@ -37,11 +37,9 @@ async function onFormSubmit(e) {
       data: { results },
     } = await apiService.getMovieByName(query);
 
-    console.log(results);
-    const newArr = parseObjects(results);
-    console.log(newArr);
+    const newArr = await parseObjects(results);
 
-    refs.movieListRef.innerHTML = movieTemplate(newArr);
+    refs.movieListRef.innerHTML = MovieTemplate(newArr);
   } catch (err) {
     console.log(err);
   } finally {
@@ -62,19 +60,31 @@ async function parseObjects(arr) {
   }, {});
 
   return arr.map(el => {
-    const releaseDate = el.release_date || el.first_air_date;
-    const year = new Date(releaseDate).getFullYear();
+    const id = el.id;
+
+    const releaseDate = new Date(
+      el.release_date || el.first_air_date
+    ).getFullYear();
+
+    const genres = el.genre_ids
+      .map(id => genreIds[id])
+      .filter(e => e)
+      .join(', ');
+
+    const img = el.poster_path
+      ? `https://image.tmdb.org/t/p/w500${el.poster_path}`
+      : 'https://dummyimage.com/395x592/000/fff.jpg&text=MOVIE+POSTER+IS+NOT+DEFINED';
+
+    const title = el.title || el.name;
+
     return {
-      id: el.id,
-      img: el.poster_path
-        ? `https://image.tmdb.org/t/p/w500${el.poster_path}`
-        : 'https://dummyimage.com/395x592/000/fff.jpg&text=MOVIE+POSTER+IS+NOT+DEFINED',
-      title: el.title || el.name,
-      genres: el.genre_ids
-        .map(id => genreIds[id])
-        .filter(e => e)
-        .join(', '),
-      releaseDate: year,
+      id,
+      img,
+      title,
+      genres,
+      releaseDate,
     };
   });
+
+  // return arr.map(el => new Movie(el, genreIds));
 }
