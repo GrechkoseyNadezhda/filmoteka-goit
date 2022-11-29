@@ -62,6 +62,8 @@ async function parseObjects(arr) {
   }, {});
 
   return arr.map(el => {
+    const releaseDate = el.release_date || el.first_air_date;
+    const year = new Date(releaseDate).getFullYear();
     return {
       id: el.id,
       img: el.poster_path
@@ -72,7 +74,7 @@ async function parseObjects(arr) {
         .map(id => genreIds[id])
         .filter(e => e)
         .join(', '),
-      releaseDate: el.release_date || el.first_air_date,
+      releaseDate: year,
     };
   });
 }
