@@ -1,20 +1,4 @@
-.container {
-  width: 100%;
-  padding: 0 20px;
-  margin: 0 auto;
 
-  @media screen and (min-width: 480px) {
-    width: 480px;
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 768px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    width: 1280px;
-  }
-}
 
 .modal {
   position: relative;
@@ -42,8 +26,7 @@
 }
 
 .modal_image {
-  width: 375px;
-  height: 478px;
+  min-width: 375px;
   border-radius: 5px;
 }
 
@@ -53,7 +36,6 @@
 
 .modal_info_name {
   margin: 0;
-  font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-size: 30px;
@@ -64,7 +46,6 @@
 .modal_specific {
   display: flex;
   flex-direction: column;
-  list-style: none;
   margin-top: 20px;
   font-size: 12px;
   padding: 0;
@@ -78,7 +59,6 @@
 
 .modal_specific--item {
   width: 152px;
-  font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -87,7 +67,6 @@
 }
 
 .modal_specific--value {
-  font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -114,7 +93,6 @@
 
 .modal_description--title {
   margin-top: 20px;
-  font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -125,7 +103,6 @@
 
 .modal_description--text {
   margin-top: 10px;
-  font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -146,8 +123,6 @@
   height: 44px;
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 1);
-  font-family: 'Roboto';
-  font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 133%;
@@ -163,4 +138,26 @@
   scale: 1.05;
   color: #ffffff;
   border-style: none;
+}
+
+.modal_movie_trailer--ref {
+  margin-top: 20px;
+  margin-left: 8px;
+  width: 136px;
+  height: 44px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 1);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 133%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.modal_movie_trailer--ref:hover {
+  background-color: #FF0000;
+  color: #ffffff;
 }
