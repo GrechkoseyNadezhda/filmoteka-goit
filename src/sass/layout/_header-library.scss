@@ -1,0 +1,86 @@
+.library{
+        background-color: black;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+          url('/src/images/header-library/library.back.S.jpg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    
+        @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+            url('/src/images/header-library/library.back.retina.S.jpg');
+          }
+    }
+      
+      @media screen and (min-width: 768px) {
+        .library {
+          background-image: linear-gradient(to right, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+          url('/src/images/header-library/library.back.M.jpg');
+        
+    
+        @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+            url('/src/images/header-library/library.back.retina.M.jpg');
+          }
+        }
+      }
+      
+      @media screen and (min-width: 1024px) {
+        .library {
+          background-image: linear-gradient(to right, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+          url('/src/images/header-library/library.back.L.jpg');
+    
+          @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+            url('/src/images/header-library/library.back.retina.L.jpg');
+          }
+        }
+}
+
+
+
+.header__btn{
+    height: 140px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+
+    
+}
+@media screen and (min-width: 768px) {
+    .header__btn{
+        gap:32px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .header__btn{
+        gap:16px;
+    }
+}
+
+a{
+    text-decoration:none;
+    color: white;
+}
+
+
+.header__bnt--watched{
+    width: 148px;
+    height: 42px;
+    border: none;
+    background-color: #FF6B01;
+    color: white;
+    border-radius: 5px;
+}
+
+.header__bnt--queue{
+    width: 147px;
+    height: 42px;
+    background: transparent;
+    border: 1px solid #FFFFFF;
+    color: white;
+    border-radius: 5px;
+}
