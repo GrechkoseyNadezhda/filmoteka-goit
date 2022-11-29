@@ -1,33 +1,29 @@
-import ApiService from './js/apiService';
-
+import ApiService from './apiService';
+import Movie from './movie';
+import '../index';
 
 const WATCHED_FILM_KEY = 'watched-films';
-let filmInfo = {774752};
+const filmInfo = [119051];
+const library = document.querySelector('.library')
+
+localStorage.setItem(WATCHED_FILM_KEY, JSON.stringify(filmInfo));
 
 
+const myLibraryApi = new ApiService();
 
-  localStorage.setItem(FORM_KEY, JSON.stringify(filmInfo));
-  // <a href="./library.html">ССЫЛКА</a>
+async function onWatchedFilmsShow(e) {
+  try {
+    const movieId = filmInfo[0]
+    const res = await myLibraryApi.getMovieById(movieId);
+    const movieById = res.data
+    console.log(movieById)
 
 
-// function onFormSubmit(event) {
-//   event.preventDefault();
-//   event.currentTarget.reset();
-//   localStorage.removeItem(FORM_KEY);
-//   formInfo = {};
-//   console.log(formInfo);
-// }
+  } catch (err) {
+    console.log(err);
+  }
+}
+onWatchedFilmsShow()
 
-// function savedComment() {
-//   const commentText = localStorage.getItem(FORM_KEY);
-//   if (commentText) {
-//     const saveObj = JSON.parse(commentText);
 
-//     for (let key of form) {
-//       if (saveObj.hasOwnProperty(key.name)) {
-//         formInfo[key.name] = key.value = saveObj[key.name];
-//       }
-//     }
-//   }
-// }
-// savedComment();
+{/* <a href="./watched.html">ССЫЛКА</a> */}
