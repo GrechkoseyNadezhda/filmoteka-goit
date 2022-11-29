@@ -1,10 +1,17 @@
 .footer-section {
   color: $footer-text-color;
-  height: 100px;
   width: 100%;
   background-color: $footer-bg-color;
   padding-top: 30px;
   padding-bottom: 30px;
+}
+
+.footer-group {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .footer-section__link {
@@ -12,12 +19,11 @@
   text-decoration: underline;
 }
 
-.footer-section__title {
-  text-align: center;
+.footer-group {
+  margin: 0 auto;
   font-size: 14px;
   line-height: 1.14;
   max-width: 280px;
-  margin: 0 auto;
 
   @media screen and(min-width: 768px) {
     font-size: 16px;
