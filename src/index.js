@@ -4,7 +4,7 @@ import MovieTemplate from './templates/movieTemplate.hbs';
 
 const refs = {
   movieListRef: document.querySelector('.movie-list'),
-  formRef: document.querySelector('.form'),
+  formRef: document.querySelector('.header__search'),
 };
 
 refs.formRef.addEventListener('submit', onFormSubmit);
