@@ -1,11 +1,9 @@
-<div class="container">
+
     <div class="modal">
-        <button type="button" class="modal_close_btn"><svg class="close_btn" width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 8L22 22" stroke="black" stroke-width="2"/>
-            <path d="M8 22L22 8" stroke="black" stroke-width="2"/>
-            </svg></button>
+        <button type="button" class="modal_close_btn"><svg class="close_btn__svg" width="30px" height="30px">
+            <use href="/src/images/icons.svg#icon-close"></use></svg></button>
         <div class="modal_picture">
-        <img class="modal_image" src="./images/modal_img.jpg" alt="sdfsdf">
+        <img class="modal_image" src="./images/modal_img.jpg" alt="Movie main picture">
         </div>
         <div class="modal_info">
             <h2 class="modal_info_name">A FISTFUL OF LEAD</h2>
@@ -29,13 +27,15 @@
                 <p class="modal_description--text">Four of the West’s most infamous outlaws assemble to steal a huge stash of gold from the most corrupt settlement of the gold rush towns. But not all goes to plan one is killed and the other three escapes with bags of gold hide out in the abandoned gold mine where they happen across another gang of three – who themselves were planning to hit the very same bank! As tensions rise, things go from bad to worse as they realise the bags of gold are filled with lead... they’ve been double crossed – but by who and how?</p>
             </div>
             <div class="modal_buttons">
-                <button type="button" class="modal_btn">ADD TO WATCHED</button>
-                <button type="button" class="modal_btn">ADD TO QUEUE</button>
+                <button type="button" class="modal_btn btn">ADD TO WATCHED</button>
+                <button type="button" class="modal_btn btn">ADD TO QUEUE</button>
             </div>
-
+            <div class="modal_movie_trailer">
+                <a target="_blank" class="modal_movie_trailer--ref" href="#"><svg class="movie_trailer__svg" width="23px" height="24px">
+                    <use href="/src/images/icons.svg#icon-youtube"></use></svg><p>WATCH TRAILER</p></a>
+            </div>
         </div>
     </div>
-</div>
 
 
 

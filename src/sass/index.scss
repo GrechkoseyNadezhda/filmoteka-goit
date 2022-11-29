@@ -5,12 +5,12 @@
 @import './utils/mixins';
 @import './utils/placeholders';
 
-
-@import './main';
+@import './layout/main';
 
 @import './base/btns';
 
-@import './modal';
+@import './layout/modal';
 
 @import './layout/footer';
 
+@import './layout/header';
