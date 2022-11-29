@@ -1,5 +1,9 @@
 .page-main {
-  padding: 60px 0;
+  padding: 20px 0;
+
+  @media screen and (min-width: $tablet-width) {
+    padding: 60px 0;
+  }
 }
 
 .movie-list {
@@ -17,6 +21,8 @@
 }
 
 .movie {
+  display: flex;
+  flex-direction: column;
   width: 100%;
 
   @media screen and (min-width: $tablet-width) {
@@ -29,14 +35,42 @@
 }
 
 .movie__img {
+  flex-grow: 1;
+  object-fit: cover;
   border-radius: 5px;
   margin-bottom: 10px;
+
+  @media screen and (min-width: $tablet-width) {
+    margin-bottom: 8px;
+  }
+
+  @media screen and (min-width: $desktop-width) {
+    margin-bottom: 12px;
+  }
+}
+
+.movie__info {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: calc(16 / 12);
+
+  @media screen and (min-width: $desktop-width) {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: calc(24 / 20);
+  }
 }
 
 .movie__name {
   text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .movie__description {
   color: $press-color;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }

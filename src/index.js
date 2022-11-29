@@ -36,6 +36,7 @@ async function onFormSubmit(e) {
     const {
       data: { results },
     } = await apiService.getMovieByName(query);
+    console.log(results);
 
     const newArr = await parseObjects(results);
 
