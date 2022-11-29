@@ -1,3 +1,4 @@
+import './js/modal.js'
 import ApiService from './js/apiService';
 import Movie from './js/movie';
 import MovieTemplate from './templates/movieTemplate.hbs';
