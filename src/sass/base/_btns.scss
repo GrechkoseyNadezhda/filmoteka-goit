@@ -1,0 +1,28 @@
+.btn {
+  width: 148px;
+  height: 42px;
+  border-radius: 5px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 133%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  border: 1px solid $light-color;
+  color: $light-color;
+  background-color: transparent;
+
+  &:hover {
+    background: $press-color;
+    scale: 1.05;
+    color: $light-color;
+    border-style: none;
+  }
+  &:focus {
+    background: $press-color;
+    color: $light-color;
+  }
+}

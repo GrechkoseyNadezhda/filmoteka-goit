@@ -2,16 +2,16 @@
   padding: 0 20px;
   margin: 0 auto;
 
-  @media screen and (min-width: 480px) {
-    width: 480px;
+  @media screen and (min-width: $phone-width) {
+    width: $phone-width;
   }
 
-  @media screen and (min-width: 768px) {
-    width: 768px;
+  @media screen and (min-width: $tablet-width) {
+    width: $tablet-width;
     padding: 0 32px;
   }
 
-  @media screen and (min-width: 1280px) {
-    width: 1280px;
+  @media screen and (min-width: $desktop-width) {
+    width: $desktop-width;
   }
 }

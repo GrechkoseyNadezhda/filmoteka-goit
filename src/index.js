@@ -1,5 +1,6 @@
 import ApiService from './js/apiService';
-import movieTemplate from './templates/movieTemplate.hbs';
+import Movie from './js/movie';
+import MovieTemplate from './templates/movieTemplate.hbs';
 
 const refs = {
   movieListRef: document.querySelector('.movie-list'),
@@ -10,31 +11,50 @@ refs.formRef.addEventListener('submit', onFormSubmit);
 
 const apiService = new ApiService();
 
-apiService
-  .getData()
-  .then(res => {
-    refs.movieListRef.innerHTML = movieTemplate(res.data.results);
-  })
-  .catch(err => console.log(err));
+async function fillMovies() {
+  try {
+    const {
+      data: { results },
+    } = await apiService.getTrendingMovies();
+
+    const markup = await parseObjects(results);
+
+    refs.movieListRef.innerHTML = MovieTemplate(markup);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+fillMovies();
 
 async function onFormSubmit(e) {
   e.preventDefault();
 
   const query = e.target.elements.input.value;
-  apiService.changeQuery(query);
-  apiService.changePath();
 
   try {
     const {
       data: { results },
-    } = await apiService.getData();
+    } = await apiService.getMovieByName(query);
 
-    console.log(results);
+    const newArr = await parseObjects(results);
 
-    refs.movieListRef.innerHTML = movieTemplate(results);
+    refs.movieListRef.innerHTML = MovieTemplate(newArr);
   } catch (err) {
     console.log(err);
   } finally {
     e.target.reset();
+  }
+}
+
+async function parseObjects(arr) {
+  try {
+    const {
+      data: { genres },
+    } = await apiService.getGengeList();
+
+    return arr.map(el => new Movie(el, genres));
+  } catch (err) {
+    console.log(err);
   }
 }
