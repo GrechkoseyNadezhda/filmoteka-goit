@@ -18,11 +18,11 @@ export default class ApiService {
     });
   }
 
-  getMovieByName(movieName) {
+  getMovieByName(movieName, myPage) {
     return axios.get('/search/movie', {
       params: {
         query: movieName,
-        page: this.page,
+        page: myPage,
       },
     });
   }
