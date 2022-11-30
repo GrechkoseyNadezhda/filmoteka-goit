@@ -52,7 +52,7 @@ async function parseObjects(arr) {
   try {
     const {
       data: { genres },
-    } = await apiService.getGengeList();
+    } = await apiService.getGenges();
 
     return arr.map(el => new Movie(el, genres));
   } catch (err) {

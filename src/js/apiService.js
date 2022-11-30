@@ -31,7 +31,7 @@ export default class ApiService {
     return axios.get(`/movie/${movieId}`);
   }
 
-  getGengeList() {
+  getGenges() {
     return axios.get('/genre/movie/list');
   }
 

@@ -18,7 +18,7 @@ export default class Movie {
   }
 
   setupYear(el) {
-    return new Date(el.release_date || el.first_air_date).getFullYear();
+    return new Date(el.release_date || el.first_air_date).getFullYear() || '';
   }
 
   setupGenres(el, genres) {
