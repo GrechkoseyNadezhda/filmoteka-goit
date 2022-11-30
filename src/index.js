@@ -1,4 +1,4 @@
-import './js/modal.js'
+import './js/modal.js';
 import ApiService from './js/apiService';
 import Movie from './js/movie';
 import MovieTemplate from './templates/movieTemplate.hbs';
@@ -12,7 +12,7 @@ refs.formRef.addEventListener('submit', onFormSubmit);
 
 const apiService = new ApiService();
 
-async function fillMovies() {
+async function onPageLoad() {
   try {
     const {
       data: { results },
@@ -26,7 +26,7 @@ async function fillMovies() {
   }
 }
 
-fillMovies();
+onPageLoad();
 
 async function onFormSubmit(e) {
   e.preventDefault();
