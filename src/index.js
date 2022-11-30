@@ -1,3 +1,4 @@
+import './js/modal.js'
 import ApiService from './js/apiService';
 import Movie from './js/movie';
 import MovieTemplate from './templates/movieTemplate.hbs';
@@ -62,7 +63,7 @@ async function parseObjects(arr) {
   try {
     const {
       data: { genres },
-    } = await apiService.getGengeList();
+    } = await apiService.getGenges();
 
     return arr.map(el => new Movie(el, genres));
   } catch (err) {
