@@ -7,5 +7,6 @@ export const paginationSettings = {
   startPage: 1,
   searchType: null,
   pagination: null,
-  totalItemsHome: null,
+  totalItems: null,
+  searchQuery: null
 };

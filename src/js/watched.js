@@ -1,16 +1,17 @@
 import ApiService from './apiService';
 import Movie from './movie';
-
+const library = document.querySelector('.watched')
 const WATCHED_FILM_KEY = 'watched-films';
 const filmInfo = [436270];
 // 436270  668461  119051
-const library = document.querySelector('.watched')
+
 
 localStorage.setItem(WATCHED_FILM_KEY, JSON.stringify(filmInfo));
 
 
 const myLibraryApi = new ApiService();
 
+onWatchedFilmsShow()
 async function onWatchedFilmsShow() {
   try {
 
@@ -19,7 +20,6 @@ async function onWatchedFilmsShow() {
     const movieById = res.data
     const genres = movieById.genres.map(el => el.name).join(', ')
     const date = new Date(movieById.release_date).getFullYear()
-    console.log(genres)
 
     const markup = `
       <li class='movie' data-id='${movieById.id}'>
@@ -39,10 +39,10 @@ async function onWatchedFilmsShow() {
       </li>
     `
 
-    library.innerHTML = markup
+    // library.innerHTML = markup;
 
   } catch (err) {
     console.log(err);
   }
 }
-onWatchedFilmsShow()
+

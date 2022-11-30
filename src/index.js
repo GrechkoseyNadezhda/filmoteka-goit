@@ -5,7 +5,7 @@ import MovieTemplate from './templates/movieTemplate.hbs';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import {container, paginationSettings} from './js/pagination'
-import './js/movie'
+import './js/watched'
 
 
 const refs = {
@@ -28,7 +28,7 @@ async function fillMovies(page) {
       itemsPerPage: results.length,
       totalItems: total_results
     })
-
+    paginationSettings.searchType = 'homeSearch';
     const markup = await parseObjects(results);
 
     refs.movieListRef.innerHTML = MovieTemplate(markup);
@@ -44,19 +44,26 @@ async function onFormSubmit(e) {
 
   const query = e.target.elements.input.value;
 
-  try {
-    const {
-      data: { results },
-    } = await apiService.getMovieByName(query);
+    paginationSettings.searchType = 'inputSearch';
+    paginationSettings.pagination.searchQuery = query;
+    try {
+      const {
+        data: { results, total_results },
+      } = await apiService.getMovieByName(paginationSettings.pagination.searchQuery, paginationSettings.startPage);
+      const newArr = await parseObjects(results);
 
-    const newArr = await parseObjects(results);
+      refs.movieListRef.innerHTML = MovieTemplate(newArr);
 
-    refs.movieListRef.innerHTML = MovieTemplate(newArr);
-  } catch (err) {
+      initPagination({
+        page,
+        itemsPerPage: results.length,
+        totalItems: total_results,
+    })} catch (err) {
     console.log(err);
-  } finally {
-    e.target.reset();
-  }
+    } finally {
+      e.target.reset();
+    }
+
 }
 
 async function parseObjects(arr) {
@@ -99,13 +106,33 @@ function initPagination ({ page, itemsPerPage, totalItems }) {
   const pagination = new Pagination(container, options);
 
   paginationSettings.pagination = pagination;
-
+paginationSettings.pagination.reset(totalItems);
   pagination.on('afterMove', async ({ page }) => {
-    apiService.page = page
+    if (paginationSettings.searchType === 'homeSearch') {
+      apiService.page = page
+      window.scroll(0,0);
+      try {
+        const {
+          data: { results, total_results },
+        } = await apiService.getTrendingMovies();
+        const markup = await parseObjects(results);  
+        refs.movieListRef.innerHTML = MovieTemplate(markup);
+      } catch (err) {
+        console.log(err);
+      }
+    } else if (paginationSettings.searchType === 'inputSearch') {
+  
+      try {
+        const {
+          data: { results, total_results},
+        } = await apiService.getMovieByName(paginationSettings.pagination.searchQuery, page);
 
-    window.scroll(0,0);
-    fillMovies(page)
-
+        const newArr = await parseObjects(results);    
+        refs.movieListRef.innerHTML = MovieTemplate(newArr);
+      } catch (err) {
+        console.log(err);
+      }
+    }
   });
 
 }
