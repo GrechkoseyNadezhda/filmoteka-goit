@@ -17,7 +17,7 @@ refs.formRef.addEventListener('submit', onFormSubmit);
 
 export const apiService = new ApiService();
 
-async function onPageLoad() {
+async function onPageLoad(page) {
   try {
     const {
       data: { results, total_results },
@@ -37,7 +37,7 @@ async function onPageLoad() {
   }
 }
 
-onPageLoad();
+onPageLoad(paginationSettings.startPage);
 
 async function onFormSubmit(e) {
   e.preventDefault();
