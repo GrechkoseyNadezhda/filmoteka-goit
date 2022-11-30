@@ -26,7 +26,7 @@ const onClickOpenModal = event => {
     const movieId = event.target.closest('li').getAttribute('data-id') 
     const newMovie = new ApiService();
     newMovie.getMovieById(movieId)
-    .then(object => { console.log(object.data)
+    .then(object => {
         titleNameValueEl.textContent = object.data.original_title;
         voteValueEl.textContent = object.data.vote_average;
         votesSumValueEl.textContent = object.data.vote_count;
