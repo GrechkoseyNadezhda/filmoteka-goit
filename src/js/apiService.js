@@ -18,11 +18,11 @@ export default class ApiService {
     });
   }
 
-  getMovieByName(movieName) {
+  getMovieByName(movieName, myPage) {
     return axios.get('/search/movie', {
       params: {
         query: movieName,
-        page: this.page,
+        page: myPage,
       },
     });
   }
@@ -33,17 +33,5 @@ export default class ApiService {
 
   getGenges() {
     return axios.get('/genre/movie/list');
-  }
-
-  changePage(pageNumber) {
-    this.page = pageNumber;
-  }
-
-  resetPage() {
-    this.page = 1;
-  }
-
-  getPage() {
-    return this.page;
   }
 }

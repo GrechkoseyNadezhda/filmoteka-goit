@@ -23,11 +23,14 @@ export default class Movie {
 
   setupGenres(el, genres) {
     const groupedGenres = this.groupGenres(genres);
-
-    return el.genre_ids
-      .map(id => groupedGenres[id])
-      .filter(e => e)
-      .join(', ');
+    if (el.genre_ids) {
+      return el.genre_ids
+        .map(id => groupedGenres[id])
+        .filter(e => e)
+        .join(', ');
+    } else {
+      return '';
+    }
   }
 
   groupGenres(genres) {
