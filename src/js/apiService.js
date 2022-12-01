@@ -34,16 +34,4 @@ export default class ApiService {
   getGenges() {
     return axios.get('/genre/movie/list');
   }
-
-  changePage(pageNumber) {
-    this.page = pageNumber;
-  }
-
-  resetPage() {
-    this.page = 1;
-  }
-
-  getPage() {
-    return this.page;
-  }
 }
