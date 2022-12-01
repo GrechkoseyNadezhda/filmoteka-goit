@@ -8,6 +8,7 @@
   background-color: rgba(0, 0, 0, 0.5);
 
   transition: opacity 400ms, visibility 400ms;
+  overflow: auto;
 }
 
 .backdrop.is-hidden {
@@ -18,9 +19,9 @@
 
 .footer-modal {
   position: absolute;
-  top: 50%;
+  top: 20px;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translateX(-50%) scale(1);
   opacity: 1;
 
   max-width: 900px;
@@ -33,10 +34,6 @@
   border-radius: 4px;
 
   transition: transform 250ms, opacity 250ms;
-
-  @media screen and(min-width: 1280px) {
-    // max-width: 528px;
-  }
 }
 
 .backdrop.is-hidden .footer-modal {
@@ -74,12 +71,10 @@
 }
 
 .team-list {
-  @media screen and (min-width: 768px) {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
-  }
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 
 .team-member {
@@ -114,7 +109,7 @@
       min-width: 354px;
     }
 
-    @media screen and(min-width: 1200px) {
+    @media screen and(min-width: 1280px) {
       min-width: 270px;
     }
   }
@@ -134,9 +129,6 @@
 }
 
 .social-list__item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   outline: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   width: 30px;
@@ -147,6 +139,16 @@
     background-color: $press-color;
     scale: 1.1;
   }
+}
+
+.social-list__icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .developersTeam {
