@@ -13,6 +13,7 @@ const refs = {
   formRef: document.querySelector('.header__search'),
 };
 
+
 refs.formRef.addEventListener('submit', onFormSubmit);
 
 export const apiService = new ApiService();
@@ -58,7 +59,13 @@ async function onFormSubmit(e) {
     );
     const newArr = await parseObjects(results);
 
-    refs.movieListRef.innerHTML = MovieTemplate(newArr);
+      // Додаткова перевірка для Input
+      if (newArr.length == 0) {
+        refs.formRef.parentNode.classList.add("header__alert");
+        return;
+      } else {
+        refs.movieListRef.innerHTML = MovieTemplate(newArr);
+        }
 
     initPagination({
       page,
