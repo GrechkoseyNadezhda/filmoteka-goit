@@ -6,7 +6,7 @@ import MovieTemplate from './templates/movieTemplate.hbs';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { container, paginationSettings } from './js/pagination';
-import './js/watched';
+// import './js/watched';
 
 const refs = {
   movieListRef: document.querySelector('.movie-list'),
