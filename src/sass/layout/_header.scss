@@ -377,26 +377,26 @@ input:autofill{
  }
  
  .header__alert::after{
-   content: "Search result not successful. Enter the correct movie name and";
+   content: "Search result not successful. Enter the correct movie name";
   //  width: 100%;
    font-size: 14px;
    color: $red-color;
    border-radius: 2px;
    position: absolute;
    top: 70%;
-   left: 4%;
+   left: 5%;
   }
  
  
  @media screen and (min-width: $tablet-width) {
    .header__alert::after{
-     left: 21%;
+     left: 24%;
     }
    }
  
  
  @media screen and (min-width: $desktop-width) {
  .header__alert::after{
-   left: 34%;
+   left: 35%;
   }
  }
