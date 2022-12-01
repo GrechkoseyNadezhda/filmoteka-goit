@@ -59,6 +59,12 @@ async function onFormSubmit(e) {
       // Додаткова перевірка для Input
       if (newArr.length == 0) {
         refs.formRef.parentNode.classList.add("header__alert");
+          const removeAlert = () => {
+            const setID = setTimeout(() => {
+            refs.formRef.parentNode.classList.remove("header__alert");
+            }, 3500);
+          };
+          removeAlert();
         return;
       } else {
         refs.movieListRef.innerHTML = MovieTemplate(newArr);
