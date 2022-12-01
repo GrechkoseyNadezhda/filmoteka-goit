@@ -2,6 +2,9 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import ApiService from './apiService';
 
+const youtubeContainerEl = document.querySelector('.modal_youtube_video_container');
+const youtubeTrailerEl = document.querySelector('.modal_youtube_video');
+
 const movieItemEl = document.querySelector('.movie-list');
 const imageEl = document.querySelector('.modal_image');
 const titleNameValueEl = document.querySelector('.modal_info_name');
@@ -32,8 +35,10 @@ const onClickOpenModal = event => {
     cssAnimationDuration: 0,
   });
 
+
   const movieId = event.target.closest('li').getAttribute('data-id');
   const newMovie = new ApiService();
+
   newMovie.getMovieById(movieId)
     .then(object => {
       addToWatchedListBtn.dataset.movieId = movieId;
@@ -82,9 +87,14 @@ const onClickOpenModal = event => {
        addToQueueListBtn.textContent = 'ADD TO QUEUE'
     };
 
-    newMovie.getMovieTrailerByID(movieId).then(response => { let trailerKey = response.data.results[0].key
-        showTrailerBtn.href = `https://www.youtube.com/watch?v=${trailerKey}`
-    }).catch(err => console.log(err))
+    newMovie.getMovieTrailerByID(movieId).then(response => { let trailerKey = response.data.results[0].key;
+        // showTrailerBtn.href = `https://www.youtube.com/watch?v=${trailerKey}`
+        youtubeTrailerEl.src = `https://www.youtube.com/embed/${trailerKey}`;
+        youtubeContainerEl.style.display = "flex";
+    }).catch(err => {
+        youtubeContainerEl.style.display = "none"; 
+
+        console.log(err)})
      
     }
 
@@ -94,6 +104,7 @@ const onClickCloseModal = event => {
     event.target.closest('.modal_close_btn')
   ) {
     modalWindowEl.close();
+    youtubeTrailerEl.src = '';
   }
 };
 
