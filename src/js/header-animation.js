@@ -10,10 +10,7 @@ back.classList.remove('our__team');
 
 
 function AnimationFn(e){
-    console.dir(e.target.value);
-
     if (e.target.value == "json method"){
-        console.log('done');
         members.classList.remove('hidden');
         back.classList.add('our__team');
         form.parentNode.classList.add("header__formJS");
