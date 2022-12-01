@@ -18,8 +18,8 @@ const showTrailerBtn = document.querySelector('.modal_movie_trailer--ref');
 let addedToWatchedArray = [];
 let addedToQueueArray = [];
 
-const LISTNAME_TO_WATCH = "added-to-watched"; 
-const LISTNAME_TO_QUEUE = "added-to-queue"; 
+export const LISTNAME_TO_WATCH = "added-to-watched"; 
+export const LISTNAME_TO_QUEUE = "added-to-queue"; 
 
 const onClickOpenModal = event => {
 
