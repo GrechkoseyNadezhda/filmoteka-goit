@@ -42,7 +42,10 @@ onPageLoad(paginationSettings.startPage);
 async function onFormSubmit(e) {
   e.preventDefault();
 
-  const query = e.target.elements.input.value;
+  const query = e.target.elements.input.value.trim();
+  if (query === '') {
+    return;
+  }
 
   paginationSettings.searchType = 'inputSearch';
   paginationSettings.pagination.searchQuery = query;
