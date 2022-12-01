@@ -14,7 +14,7 @@ const overviewValueEl = document.querySelector('[data-text-overview]');
 const modalWindowEl = document.getElementById('modal_window');
 const addToWatchedListBtn = document.querySelector('.js-toWatchBtn');
 const addToQueueListBtn = document.querySelector('.js-toAddtoQue');
-
+const showTrailerBtn = document.querySelector('.modal_movie_trailer--ref');
 let addedToWatchedArray = [];
 let addedToQueueArray = [];
 
@@ -81,6 +81,11 @@ const onClickOpenModal = event => {
        addToQueueListBtn.style.color = "black"
        addToQueueListBtn.textContent = 'ADD TO QUEUE'
     };
+
+    newMovie.getMovieTrailerByID(movieId).then(response => { let trailerKey = response.data.results[0].key
+        showTrailerBtn.href = `https://www.youtube.com/watch?v=${trailerKey}`
+    }).catch(err => console.log(err))
+     
     }
 
 const onClickCloseModal = event => {
@@ -153,3 +158,4 @@ addToWatchedListBtn.addEventListener('click', addToWatchedList);
 addToQueueListBtn.addEventListener('click', addToQueueList);
 
 // localStorage.clear()
+
