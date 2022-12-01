@@ -25,9 +25,9 @@ export default class Movie {
     const groupedGenres = this.groupGenres(genres);
     if (el.genre_ids) {
       return el.genre_ids
-      .map(id => groupedGenres[id])
-      .filter(e => e)
-      .join(', ');
+        .map(id => groupedGenres[id])
+        .filter(e => e)
+        .join(', ');
     } else {
       return '';
     }
