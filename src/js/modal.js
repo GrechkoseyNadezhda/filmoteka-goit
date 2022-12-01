@@ -18,8 +18,8 @@ const addToQueueListBtn = document.querySelector('.js-toAddtoQue');
 let addedToWatchedArray = [];
 let addedToQueueArray = [];
 
-const LISTNAME_TO_WATCH = "added-to-watched"; 
-const LISTNAME_TO_QUEUE = "added-to-queue"; 
+export const LISTNAME_TO_WATCH = "added-to-watched"; 
+export const LISTNAME_TO_QUEUE = "added-to-queue"; 
 
 const onClickOpenModal = event => {
 
@@ -153,3 +153,4 @@ addToWatchedListBtn.addEventListener('click', addToWatchedList);
 addToQueueListBtn.addEventListener('click', addToQueueList);
 
 // localStorage.clear()
+
