@@ -5,7 +5,6 @@ import ApiService from './js/apiService';
 import Movie from './js/movie';
 import MovieTemplate from './templates/movieTemplate.hbs';
 import Pagination from 'tui-pagination';
-// import 'tui-pagination/dist/tui-pagination.css';
 import { container, paginationSettings } from './js/pagination';
 import arrowIcon from './images/pagination-icons/arrow-right.svg';
 
