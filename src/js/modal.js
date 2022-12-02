@@ -22,8 +22,6 @@ const showTrailerBtn = document.querySelector('.modal_movie_trailer--ref');
 let addedToWatchedArray = [];
 let addedToQueueArray = [];
 
-console.log(genresValueEl);
-
 export const LISTNAME_TO_WATCH = 'added-to-watched';
 export const LISTNAME_TO_QUEUE = 'added-to-queue';
 
