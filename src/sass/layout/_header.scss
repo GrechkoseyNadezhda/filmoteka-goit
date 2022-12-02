@@ -59,11 +59,24 @@ input:autofill{
  .our__team{
    background-color: #1f2026;
    background-image: url('/src/images/header-home/json-method.png'), url('/src/images/header-home/json-method.png');
-   background-size: 200px 200px;
-   background-position: top 5px right 26%, top 5px left 26%;
+   background-size: 100px 100px;
+   background-position: top 115px right 5%, top 115px left 5%;
  }
  
  
+ @media screen and (min-width: $tablet-width) {
+  .our__team{
+    background-position: top 5px right 5%, top 5px left 5%;
+    background-size: 200px 200px;
+  }
+ }
+
+ @media screen and (min-width: $desktop-width) {
+  .our__team{
+    background-position: top 5px right 23%, top 5px left 23%;
+  }
+ }
+
  .hidden{
  position: absolute;
  white-space: nowrap;
@@ -82,7 +95,7 @@ input:autofill{
    width: 40%;
    gap:30px;
  
-   font-size: 16px;
+   font-size: 10px;
    font-weight: 500;
  
    display: flex;
@@ -90,6 +103,13 @@ input:autofill{
    color:$red-color;
  }
  
+ @media screen and (min-width: $desktop-width) {
+  .team__members{
+    font-size: 16px;
+  }
+}
+
+
  .team__leadScrum{
    width: 100%;
    display: flex;
@@ -202,14 +222,14 @@ input:autofill{
  
  
  .header__form{
-     height: 140px;
+     height: 130px;
      display: flex;
      align-items: center;
      justify-content: center;
  }
  
  .header__formJS{
-   height: 79px;
+   height: 70px;
    justify-content: center;
      align-items: center;
      display: flex;
@@ -246,7 +266,7 @@ input:autofill{
      }
  }
  
- @media screen and (min-width: 1280px) {
+ @media screen and (min-width: $desktop-width) {
      .header__search{
          width: 394px;
      }
@@ -357,26 +377,26 @@ input:autofill{
  }
  
  .header__alert::after{
-   content: "Search result not successful. Enter the correct movie name and";
-   width: 100%;
+   content: "Search result not successful. Enter the correct movie name";
+  //  width: 100%;
    font-size: 14px;
    color: $red-color;
    border-radius: 2px;
    position: absolute;
    top: 70%;
-   left: 4%;
+   left: 5%;
   }
  
  
  @media screen and (min-width: $tablet-width) {
    .header__alert::after{
-     left: 21%;
+     left: 24%;
     }
    }
  
  
  @media screen and (min-width: $desktop-width) {
  .header__alert::after{
-   left: 34%;
+   left: 35%;
   }
  }

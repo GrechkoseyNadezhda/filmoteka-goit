@@ -8,6 +8,7 @@
   background-color: rgba(0, 0, 0, 0.5);
 
   transition: opacity 400ms, visibility 400ms;
+  overflow: auto;
 }
 
 .backdrop.is-hidden {
@@ -18,12 +19,12 @@
 
 .footer-modal {
   position: absolute;
-  top: 50%;
+  top: 20px;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translateX(-50%) scale(1);
   opacity: 1;
 
-  max-width: 450px;
+  max-width: 900px;
   width: 100%;
   padding: 40px;
 
@@ -33,14 +34,10 @@
   border-radius: 4px;
 
   transition: transform 250ms, opacity 250ms;
-
-  @media screen and(min-width: 1280px) {
-    // max-width: 528px;
-  }
 }
 
 .backdrop.is-hidden .footer-modal {
-  transform: translate(-50%, -50%) scale(0.3);
+  transform: translate(-50%, 50%) scale(0.3);
   opacity: 0;
 }
 
@@ -71,4 +68,94 @@
   &:hover {
     background-color: $press-color;
   }
+}
+
+.team-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.team-member {
+  background-color: $light-color;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 0px 0px 4px 4px;
+}
+
+.team-member__name {
+  margin-bottom: 10px;
+  color: #212121;
+}
+
+.team-member__position {
+  margin-bottom: 10px;
+}
+
+.team-list__item {
+  max-width: 200px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 0px 0px 4px 4px;
+
+  @media screen and(max-width: 767px) {
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+
+    @media screen and(min-width: 768px) {
+      display: block;
+      min-width: 354px;
+    }
+
+    @media screen and(min-width: 1280px) {
+      min-width: 270px;
+    }
+  }
+}
+
+.team-member__name,
+.team-member__position {
+  font-size: 16px;
+  line-height: 1.19;
+  text-align: center;
+}
+
+.social-list {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+}
+
+.social-list__item {
+  outline: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $press-color;
+    scale: 1.1;
+  }
+}
+
+.social-list__icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.developersTeam {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.overflow {
+  overflow: hidden;
 }

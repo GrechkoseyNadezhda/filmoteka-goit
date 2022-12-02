@@ -6,7 +6,7 @@ import MovieTemplate from './templates/movieTemplate.hbs';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { container, paginationSettings } from './js/pagination';
-import './js/watched';
+// import './js/watched';
 
 const refs = {
   movieListRef: document.querySelector('.movie-list'),
@@ -62,6 +62,12 @@ async function onFormSubmit(e) {
       // Додаткова перевірка для Input
       if (newArr.length == 0) {
         refs.formRef.parentNode.classList.add("header__alert");
+          const removeAlert = () => {
+            const setID = setTimeout(() => {
+            refs.formRef.parentNode.classList.remove("header__alert");
+            }, 3500);
+          };
+          removeAlert();
         return;
       } else {
         refs.movieListRef.innerHTML = MovieTemplate(newArr);

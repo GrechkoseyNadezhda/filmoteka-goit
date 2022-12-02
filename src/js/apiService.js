@@ -34,4 +34,8 @@ export default class ApiService {
   getGenges() {
     return axios.get('/genre/movie/list');
   }
+
+  getMovieTrailerByID(movieId){
+    return axios.get(`/movie/${movieId}/videos`);
+  }
 }

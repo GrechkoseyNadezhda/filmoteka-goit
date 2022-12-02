@@ -206,6 +206,7 @@ border: none;
 }
 
 .modal_btn:hover {
+  cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 1);
 }
 
@@ -254,4 +255,23 @@ border: none;
 fill: #ffffff;
 }
 
+.modal_youtube_video_container {
+  display: flex;
+  width: 100%;
+  height: auto;
+  margin: 20px auto 0 auto;
+}
 
+.modal_youtube_video {
+  margin-left: 8px;
+  border-radius: 10px;
+
+  @media screen and (min-width: 768px) and (max-width: 1279px)
+  {
+    margin: 0 auto;
+  }
+    @media screen and (max-width: 767.5px)
+  {
+    margin: 0 auto;
+  }
+}
