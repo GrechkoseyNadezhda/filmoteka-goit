@@ -1,4 +1,5 @@
 import './js/footer-modal';
+import './js/button-up.js';
 import './js/modal.js';
 import ApiService from './js/apiService';
 import Movie from './js/movie';
