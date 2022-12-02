@@ -20,6 +20,7 @@
   "dependencies": {
     "@swc/helpers": "^0.4.14",
     "axios": "^1.2.0",
+    "handlebars": "^4.7.7",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.5",
     "regenerator-runtime": "^0.13.11",
