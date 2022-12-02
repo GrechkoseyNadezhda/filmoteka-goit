@@ -35,7 +35,7 @@
   position: fixed;
   background-color: $press-color;
   right: 20px;
-  bottom: 170px;
+  bottom: 50px;
   border-radius: 8px;
   cursor: pointer;
   display: flex;
@@ -48,14 +48,11 @@
   transform: translateY(0);
 }
 
-.btn-up::before {
-  content: '';
-  // width: 40px;
-  // height: 40px;
-  background: transparent no-repeat center center;
-  background-size: 100% 100%;
-  // background-image: url();
-}
+// .btn-up::before {
+//   content: '';
+//   background: transparent no-repeat center center;
+//   background-size: 100% 100%;
+// }
 
 .btn-up_hide {
   display: none;
