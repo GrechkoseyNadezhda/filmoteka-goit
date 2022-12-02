@@ -13,7 +13,6 @@ const refs = {
   formRef: document.querySelector('.header__search'),
 };
 
-
 refs.formRef.addEventListener('submit', onFormSubmit);
 
 export const apiService = new ApiService();
@@ -34,7 +33,7 @@ async function onPageLoad(page) {
 
     refs.movieListRef.innerHTML = MovieTemplate(markup);
   } catch (err) {
-    console.log(err);
+    console.log(err.message);
   }
 }
 
@@ -59,19 +58,19 @@ async function onFormSubmit(e) {
     );
     const newArr = await parseObjects(results);
 
-      // Додаткова перевірка для Input
-      if (newArr.length == 0) {
-        refs.formRef.parentNode.classList.add("header__alert");
-          const removeAlert = () => {
-            const setID = setTimeout(() => {
-            refs.formRef.parentNode.classList.remove("header__alert");
-            }, 3500);
-          };
-          removeAlert();
-        return;
-      } else {
-        refs.movieListRef.innerHTML = MovieTemplate(newArr);
-        }
+    // Додаткова перевірка для Input
+    if (newArr.length == 0) {
+      refs.formRef.parentNode.classList.add('header__alert');
+      const removeAlert = () => {
+        const setID = setTimeout(() => {
+          refs.formRef.parentNode.classList.remove('header__alert');
+        }, 3500);
+      };
+      removeAlert();
+      return;
+    } else {
+      refs.movieListRef.innerHTML = MovieTemplate(newArr);
+    }
 
     initPagination({
       page,
@@ -79,7 +78,7 @@ async function onFormSubmit(e) {
       totalItems: total_results,
     });
   } catch (err) {
-    console.log(err);
+    console.log(err.message);
   } finally {
     e.target.reset();
   }
@@ -93,7 +92,7 @@ async function parseObjects(arr) {
 
     return arr.map(el => new Movie(el, genres));
   } catch (err) {
-    console.log(err);
+    console.log(err.message);
   }
 }
 
@@ -137,7 +136,7 @@ function initPagination({ page, itemsPerPage, totalItems }) {
         const markup = await parseObjects(results);
         refs.movieListRef.innerHTML = MovieTemplate(markup);
       } catch (err) {
-        console.log(err);
+        console.log(err.message);
       }
     } else if (paginationSettings.searchType === 'inputSearch') {
       try {
@@ -151,7 +150,7 @@ function initPagination({ page, itemsPerPage, totalItems }) {
         const newArr = await parseObjects(results);
         refs.movieListRef.innerHTML = MovieTemplate(newArr);
       } catch (err) {
-        console.log(err);
+        console.log(err.message);
       }
     }
   });
