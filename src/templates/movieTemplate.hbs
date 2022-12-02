@@ -1,0 +1,31 @@
+{{#each this}}
+  <li class='movie' data-id='{{this.id}}'>
+    <img
+      class='movie__img'
+      width='440'
+      src='{{this.img}}'
+      alt='{{this.title}}'
+      loading='lazy'
+    />
+    <div class='movie__info'>
+      <p class='movie__name'>{{this.title}}</p>
+      <p class='movie__description'>
+        {{this.genres}}
+
+        {{#if this.genres}}
+          {{#if this.releaseDate}}
+            |
+          {{/if}}
+        {{/if}}
+
+        {{this.releaseDate}}
+
+        {{#unless this.genres}}
+          {{#unless this.releaseDate}}
+            No information about the movie
+          {{/unless}}
+        {{/unless}}
+      </p>
+    </div>
+  </li>
+{{/each}}

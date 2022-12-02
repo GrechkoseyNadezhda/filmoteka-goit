@@ -1,0 +1,98 @@
+.library{
+        background-color: $dark-color;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+          url('/src/images/header-library/library.back.S.jpg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    
+        @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+            url('/src/images/header-library/library.back.retina.S.jpg');
+          }
+    }
+      
+      @media screen and (min-width: $tablet-width) {
+        .library {
+          background-image: linear-gradient(to right, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+          url('/src/images/header-library/library.back.M.jpg');
+        
+    
+        @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+            url('/src/images/header-library/library.back.retina.M.jpg');
+          }
+        }
+      }
+      
+      @media screen and (min-width: $desktop-width) {
+        .library {
+          background-image: linear-gradient(to right, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+          url('/src/images/header-library/library.back.L.jpg');
+    
+          @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+            url('/src/images/header-library/library.back.retina.L.jpg');
+          }
+        }
+}
+
+
+
+.header__btns{
+    height: 140px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+}
+
+
+@media screen and (min-width: $tablet-width) {
+    .header__btn{
+        gap:32px;
+    }
+}
+
+@media screen and (min-width: $desktop-width) {
+    .header__btn{
+        gap:16px;
+    }
+}
+
+a{
+    text-decoration:none;
+    color: $light-color;
+}
+
+.header__bnt{
+  height: 42px;
+  border-radius: 5px;
+  color: $light-color;
+  background: transparent;
+  border: 1px solid $light-color;
+}
+
+.header__bnt--watched{
+  width: 148px;
+}
+
+.header__bnt--queue{
+  width: 147px;
+}
+
+.header__bnt--watched:hover,
+.header__bnt--watched:focus{
+  box-shadow: 0 0em 0.7em 0em $press-color;
+}
+
+.header__bnt--active {
+  border: none;
+  background-color: $press-color;
+}
+
+.header__bnt--queue:hover,
+.header__bnt--queue:focus{
+  box-shadow: 0 0em 0.7em 0em white;
+}
