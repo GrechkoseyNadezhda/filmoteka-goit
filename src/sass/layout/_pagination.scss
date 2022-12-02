@@ -1,10 +1,16 @@
 #pagination {
-  width: 374px;
+  width: 280px;
+
   height: 40px;
   margin: 0 auto;
   margin-top: 40px;
   display: flex;
   justify-content: center;
+
+  @media screen and (min-width: $tablet-width) {
+    width: 374px;
+  }
+
 }
 
 .tui-page-btn {
@@ -37,6 +43,12 @@
   fill:orange;
   transition: all 250ms ease-in-out;
 }
+.tui-prev-is-ellip, .tui-next-is-ellip {
+  display: none;
+  @media screen and (min-width: $tablet-width) {
+    display: flex;
+  }
+}
 
 
 .tui-first, .tui-last {
@@ -46,74 +58,7 @@
 .tui-prev {
   transform: rotate(180deg)
 }
+.tui-prev, .tui-next {
+background: #F7F7F7;
+}
 
-// .tui-page-btn.tui-prev.hide-prev,
-// .tui-page-btn.tui-first.tui-is-disabled,
-// .tui-page-btn.tui-next.hide-next,
-// .tui-page-btn.tui-last.tui-is-disabled,
-// .tui-page-btn.tui-next-is-ellip.change-next,
-// .tui-page-btn.tui-prev-is-ellip.change-prev {
-//   display: none;
-// }
-
-// .tui-pagination .tui-next {
-//   margin-left: 0;
-// }
-
-// .tui-pagination .tui-prev {
-//   margin-right: 0;
-// }
-
-
-
-
-
-// .tui-pagination .tui-is-disabled:hover {
-//   background: transparent;
-//   border: none;
-// }
-
-// .tui-pagination .hide-first,
-// .tui-pagination .hide-last {
-//   background: rgba(247, 247, 247, 0.5);
-// }
-
-// .tui-pagination .tui-first-is-ellip:hover,
-// .tui-pagination .tui-last-is-ellip:hover,
-// .tui-pagination .hide-last:hover,
-// .tui-pagination .hide-first:hover {
-//   background: orange;
-// }
-
-// .tui-pagination .tui-prev-is-ellip:hover > .tui-ico-ellip,
-// .tui-pagination .tui-next-is-ellip:hover > .tui-ico-ellip,
-// .tui-pagination .hide-first:hover > .tui-ico-first,
-// .tui-pagination .hide-last:hover > .tui-ico-last {
-//   fill: white;
-// }
-
-// .tui-pagination .tui-is-selected:hover {
-//   background: orange;
-// }
-
-// .tui-pagination .tui-ico-ellip {
-//   margin-top: 0;
-// }
-
-// .tui-pagination .tui-first-child.tui-is-selected {
-//   border-left: none;
-// }
-
-// .tui-pagination .tui-ico-prev,
-// .tui-pagination .tui-ico-next,
-// .tui-pagination .tui-ico-first,
-// .tui-pagination .tui-ico-last,
-// .tui-pagination .tui-ico-ellip {
-//   background-image: none;
-// }
-
-
-
-// .tui-pagination .tui-last-child.tui-is-selected {
-//   border-right: 1px solid orange;
-// }
