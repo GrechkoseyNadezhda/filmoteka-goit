@@ -6,7 +6,7 @@ const library = document.querySelector('.watched');
 const watchedBtn = document.querySelector('.header__bnt--watched');
 const queueBtn = document.querySelector('.header__bnt--queue');
 
-const myLibraryApi = new ApiService();
+export const myLibraryApi = new ApiService();
 
 
 watchedBtn.addEventListener('click', makeLibraryCollectionsWatched);
@@ -17,15 +17,17 @@ queueBtn.addEventListener('click', makeLibraryCollectionsQueue);
 })();
 
 function makeLibraryCollectionsWatched() {
-
+  watchedBtn.classList.add('header__bnt--active')
+  queueBtn.classList.remove('header__bnt--active')
   makeLibraryCollections (LISTNAME_TO_WATCH)  
 }
 function makeLibraryCollectionsQueue() {
-  
+  queueBtn.classList.add('header__bnt--active')
+  watchedBtn.classList.remove('header__bnt--active')
   makeLibraryCollections (LISTNAME_TO_QUEUE)  
 }
 
-function makeLibraryCollections(localStorageKey) {
+export function makeLibraryCollections(localStorageKey) {
   const watchedFilms = localStorage.getItem(localStorageKey);
   const parsedWatchedFilms = JSON.parse(watchedFilms);
   library.innerHTML = ''
