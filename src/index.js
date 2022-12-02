@@ -5,9 +5,8 @@ import ApiService from './js/apiService';
 import Movie from './js/movie';
 import MovieTemplate from './templates/movieTemplate.hbs';
 import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
 import { container, paginationSettings } from './js/pagination';
-
+import arrowIcon from './images/pagination-icons/arrow-right.svg';
 
 const refs = {
   movieListRef: document.querySelector('.movie-list'),
@@ -52,7 +51,7 @@ async function onFormSubmit(e) {
   paginationSettings.pagination.searchQuery = query;
   try {
     const {
-      data: { results, total_results },
+      data: { results, total_results, page },
     } = await apiService.getMovieByName(
       paginationSettings.pagination.searchQuery,
       paginationSettings.startPage
@@ -109,13 +108,12 @@ function initPagination({ page, itemsPerPage, totalItems }) {
       currentPage:
         '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
       moveButton:
-        '<a href="#" class="tui-page-btn tui-{{type}}">' +
-        '<span class="tui-ico-{{type}}">{{type}}</span>' +
-        '</a>',
+        `<a href="#" class="tui-page-btn tui-{{type}}">
+          <span class="tui-ico-{{type}}"> <img src="${arrowIcon}" alt="arrow-icon">
+          </span>
+        </a>`,
       disabledMoveButton:
-        '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-        '<span class="tui-ico-{{type}}">{{type}}</span>' +
-        '</span>',
+        `<span class="tui-page-btn tui-is-disabled tui-{{type}}"><span class="tui-ico-{{type}}"><img src="${arrowIcon}" alt="arrow-icon"></span></span>`,
       moreButton:
         '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
         '<span class="tui-ico-ellip">...</span>' +
@@ -125,7 +123,7 @@ function initPagination({ page, itemsPerPage, totalItems }) {
   const pagination = new Pagination(container, options);
 
   paginationSettings.pagination = pagination;
-  paginationSettings.pagination.reset(totalItems);
+  // paginationSettings.pagination.reset(totalItems);
   pagination.on('afterMove', async ({ page }) => {
     if (paginationSettings.searchType === 'homeSearch') {
       apiService.page = page;
